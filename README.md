@@ -29,7 +29,7 @@ L'installation des prérequis à ce TP étant fastidieuse, nous vous avons préc
 La partie 2 du TP requiert la création d'une base de données Neo4j en mode "bac à sable" (Sandbox). Pour cela:
 1. Créez une base de données  [Neo4j Sandbox](https://neo4j.com/sandbox/). Utilisez les informations que vous souhaitez pour la création de compte.
 2. Parmi les templates, créez une base vierge (*Blank sandbox*)
-3. Dans le portail Neo4j (un lien vous a été envoyé par email), dépliez la ligne correspondant à votre sandbox puis allez dans l'onglet **Connection details** pour noter ces informations de connexion
+3. Dans le portail Neo4j (un lien vous a été envoyé par email et/ou un fichier avec ces information est téléchargé), dépliez la ligne correspondant à votre sandbox puis allez dans l'onglet **Connection details** pour noter ces informations de connexion
 ![image](https://user-images.githubusercontent.com/22498922/147907013-ae0f0d32-7982-464b-969a-576646407c9c.png)
 4. ⚠️ Modifiez votre fichier `.env` les variables d'environnement nécessaires à la connexion à votre base Neo4j. Notez que les bases sandbox sont automatiquement détruites au bout de 2 jours mais vous pouvez la prolonger ou la reconstruire très facilement une fois la Partie 3 du TP réalisée.
 
