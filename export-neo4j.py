@@ -82,9 +82,9 @@ with pyodbc.connect('DRIVER='+driver+';SERVER=tcp:'+server+';PORT=1433;DATABASE=
 
     try:
         print("Indexing Film nodes...")
-        graph.run("CREATE INDEX FOR (f:Film) ON (f.idFilm)")
+        graph.run("CREATE INDEX IF NOT EXISTS FOR (f:Film) ON (f.idFilm)")
         print("Indexing Name (Artist) nodes...")
-        graph.run("CREATE INDEX FOR (a.Artist) ON (a.idArtist)")
+        graph.run("CREATE INDEX IF NOT EXISTS FOR (a:Artist) ON (a.idArtist)")
     except Exception as error:
         print(error)
 
@@ -113,7 +113,7 @@ with pyodbc.connect('DRIVER='+driver+';SERVER=tcp:'+server+';PORT=1433;DATABASE=
                 # A COMPLETER
                 if importData[cat]:
                     rel_type = cat.replace(" ", "_")
-                    create_relationships(graph.auto(), importData[cat], rel_type, start_node_key=("idArtist",), end_node_key=("idFilm",))
+                    create_relationships(graph.auto(), importData[cat], rel_type, start_node_key=("Artist", "idArtist"), end_node_key=("Film","idFilm"))
             exportedCount += len(rows)
             print(f"{exportedCount}/{totalCount} relationships exported to Neo4j")
         except Exception as error:
